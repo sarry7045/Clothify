@@ -5,7 +5,8 @@ import { UserContext } from "../Context/userContext";
 import { signOutUser } from "../Utils/FireBase";
 import CartIcon from "./CartIcon";
 import CartDropdown from "./CartDropdown";
-import { CartContext } from "../Context/CartContexr";
+import { CartContext } from "../Context/CartContext";
+import MainIcon from "../assets/shopping.png";
 
 const Navigation = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -20,8 +21,15 @@ const Navigation = () => {
   return (
     <>
       <div className="navigation">
-        <Link className="logo-container" to="/">  
-          <h2 className="logo">Clothify</h2>
+        <Link className="logo-container" to="/">
+          <img
+            src={MainIcon}
+            alt="Main Icon"
+            style={{ width: "70px", height: "70px" }}
+          />
+          {/* <h2 className="logo" style={{ color: "orange" }}>
+            Clothify
+          </h2> */}
         </Link>
         <div className="nav-links-container">
           <Link className="nav-link" to="/shop">
