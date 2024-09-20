@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "../SCSS/CartIcon.scss";
 import { CartContext } from "../Context/CartContext";
+import { FaCartPlus } from "react-icons/fa";
 // import { ReactComponent as ShoppingIcon } from "../assets/shopping-bag.svg";
 
 const CartIcon = () => {
@@ -10,8 +11,8 @@ const CartIcon = () => {
   return (
     <div className="cart-icon-container" onClick={toggleIsCartOpen}>
       {/* <ShoppingIcon className="shopping-icon" /> */}
-      Cart
-      <span className="item-count">{cartItemCount}LL</span>
+      <FaCartPlus size={20}/>
+      {/* <span className="item-count">{cartItemCount}</span> */}
     </div>
   );
 };
