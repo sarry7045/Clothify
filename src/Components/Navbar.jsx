@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import "../SCSS/Navbar.styles.scss";
 import { useContext } from "react";
-import { UserContext } from "../Context/userContext";
+import { UserContext } from "../Context/UserContext";
 import { signOutUser } from "../Utils/FireBase";
 import CartIcon from "./CartIcon";
 import CartDropdown from "./CartDropdown";

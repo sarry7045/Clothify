@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
-import { UserContext } from "../Context/userContext";
+import { UserContext } from "../Context/UserContext";
 import Button from "../SubComponents/Button.jsx";
 import "../SCSS/PaymentForm.scss";
 
