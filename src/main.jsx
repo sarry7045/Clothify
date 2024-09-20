@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
-import { UserProvider } from "./Context/userContext.jsx";
+import { UserProvider } from "./Context/UserContext.jsx";
 import { ProductProvider } from "./Context/ProductContext.jsx";
 import { CartProvider } from "./Context/CartContext.jsx";
 import { Elements } from "@stripe/react-stripe-js";
