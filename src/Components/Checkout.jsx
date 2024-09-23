@@ -1,12 +1,17 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
-import CheckoutItem from "./CheckoutItem";
-import "../SCSS/Checkout.scss";
+import { UserContext } from "../Context/UserContext";
 import PaymentForm from "./PaymentForm";
+import CheckoutItem from "./CheckoutItem";
+import EmptyCart from "../assets/EmptyCart.png";
+import "../SCSS/Checkout.scss";
 
 const Checkout = () => {
   const { cartItems, cartTotal } = useContext(CartContext);
-
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  
   return (
     <div className="checkout-container">
       <div className="checkout-header">
@@ -29,8 +34,29 @@ const Checkout = () => {
       {cartItems.map((cartItem) => (
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
-      <div className="total">TOTAL: ${cartTotal}</div>
-      <PaymentForm/>
+      {cartItems.length > 0 ? (
+        <>
+          <div className="total">TOTAL: ${cartTotal}</div>
+          {!currentUser && (
+            <span style={{ marginRight: "-39rem", marginTop: "10px" }}>
+              <span
+                onClick={() => navigate("/authenticate")}
+                style={{ color: "#0504AA", cursor: "pointer" }}
+              >
+                SIGN IN
+              </span>{" "}
+              to Pay
+            </span>
+          )}
+          <PaymentForm />
+        </>
+      ) : (
+        <>
+          <div>
+            <img src={EmptyCart} />
+          </div>
+        </>
+      )}
     </div>
   );
 };

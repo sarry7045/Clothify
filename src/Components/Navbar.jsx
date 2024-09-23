@@ -35,6 +35,7 @@ const Navigation = () => {
           <Link className="nav-link" to="/shop">
             SHOP
           </Link>
+          <span style={{color:"#FF3C00"}}>{currentUser && `Hii ${currentUser?.email.slice(0, 5).toUpperCase()}`}</span>
           {currentUser ? (
             <span className="nav-link" onClick={signOutHandler}>
               SIGN OUT
