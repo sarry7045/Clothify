@@ -1,4 +1,5 @@
 require("dotenv").config();
+const express = require("express");
 const stripe = require("stripe")(process.env.VITE_STRIPE_SECRER_KEY);
 
 exports.handler = async (event) => {
@@ -9,7 +10,7 @@ exports.handler = async (event) => {
       currency: "usd",
       payment_method_types: ["card"],
     });
-    
+
     return {
       statusCode: 200,
       body: JSON.stringify({ paymentIntent }),
